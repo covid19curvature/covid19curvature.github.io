@@ -1,1 +1,1 @@
-# covid19curvature.github.io
+# Computation of Ricci Curvature on COVID-19 Network Data

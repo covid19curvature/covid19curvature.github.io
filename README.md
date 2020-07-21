@@ -1,1 +1,1 @@
-# Computation of Ricci Curvature on COVID-19 Network
+# Ricci Curvature of COVID-19 Network

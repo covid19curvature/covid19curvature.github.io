@@ -1,7 +1,7 @@
 # Ricci Curvature of COVID-19 Network
 
 ### Team
-Abhishek Halder, Dept. of Applied Mathematics, University of California Santa Cruz, ahalder@ucsc.edu
+[Abhishek Halder](https://abhishekhalder.org), Dept. of Applied Mathematics, University of California Santa Cruz, ahalder@ucsc.edu
 
 Qingyuan Cui, Dept. of Applied Mathematics, University of California Santa Cruz, qcui4@ucsc.edu
 

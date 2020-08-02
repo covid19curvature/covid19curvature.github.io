@@ -1,0 +1,507 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <script src="https://cdn.jsdelivr.net/npm/vega@5"></script>
+        <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.js"></script>
+        <meta charset="UTF-8">
+        <title></title>
+        <style type="text/css">
+            body{
+                margin:0;
+                padding:0;
+                text-align:center;
+            }
+            ul, li{
+                margin:0; 
+                padding:0;
+                font-style: normal;
+                list-style:none;
+            } 
+            #nav{
+                width:100%; 
+                height:60px; 
+                background:#00A2CA;
+                margin:0 auto;
+                overflow:hidden;
+            } 
+            #nav li{
+                display:inline-block;
+            } 
+            #nav li a{
+                display:inline-block;
+                padding:0 20px;
+                color:#FFF;
+                text-decoration:none;
+                font:17px/60px arial;
+            } 
+            #nav li a:hover{
+                background:#0095BB;
+            } 
+
+            #nav  li ul { 
+                position:absolute; 
+                display:none;
+            }
+            
+            #nav li ul li {
+                 display: block;
+            }
+            
+            #nav li ul li a {
+                background:#00A2CA;
+            }
+            
+            #nav li:hover ul{
+                display:block; 
+            }
+        #loading{position:fixed;top:0;left:0;width:100%;height:100%;opacity:0.6;z-index:15000;}
+        #loading img{position:absolute;top:50%;left:50%;width:60px;height:60px;margin-top:-30px;margin-left:-30px;background: white;}
+        </style>
+    </head>
+    <body>
+        <ul id="nav"> 
+            <li><a href="#">January</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/101">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/102">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/103">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/104">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/105">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/106">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/107">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/108">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/109">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/110">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/111">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/112">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/113">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/114">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/115">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/116">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/117">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/118">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/119">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/120">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/121">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/122">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/123">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/124">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/125">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/126">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/127">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/128">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/129">29th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/130">30th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/131">31st  </a></li>
+                </ul>
+            </li>
+            <li><a href="#">February</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/201">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/202">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/203">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/204">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/205">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/206">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/207">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/208">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/209">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/210">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/211">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/212">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/213">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/214">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/215">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/216">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/217">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/218">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/219">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/220">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/221">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/222">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/223">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/224">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/225">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/226">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/227">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/228">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/229">29th  </a></li>
+                </ul>
+            </li>
+            <li><a href="#">March</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/301">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/302">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/303">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/304">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/305">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/306">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/307">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/308">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/309">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/310">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/311">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/312">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/313">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/314">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/315">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/316">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/317">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/318">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/319">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/320">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/321">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/322">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/323">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/324">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/325">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/326">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/327">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/328">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/329">29th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/330">30th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/331">31st  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">April</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/401">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/402">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/403">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/404">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/405">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/406">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/407">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/408">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/409">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/410">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/411">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/412">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/413">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/414">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/415">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/416">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/417">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/418">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/419">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/420">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/421">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/422">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/423">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/424">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/425">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/426">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/427">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/428">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/429">29th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/430">30th  </a></li>
+                </ul>
+            </li> 
+                        <li><a href="#">May</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/501">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/502">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/503">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/504">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/505">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/506">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/507">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/508">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/509">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/510">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/511">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/512">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/513">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/514">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/515">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/516">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/517">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/518">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/519">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/520">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/521">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/522">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/523">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/524">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/525">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/526">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/527">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/528">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/529">29th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/530">30th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/531">31st  </a></li>
+                </ul>
+            </li>
+            <li><a href="#">June</a>
+                <ul>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/601">1st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/602">2nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/603">3rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/604">4th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/605">5th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/606">6th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/607">7th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/608">8th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/609">9th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/610">10th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/611">11th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/612">12th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/613">13rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/614">14th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/615">15th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/616">16th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/617">17th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/618">18th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/619">19th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/620">20th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/621">21st  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/622">22nd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/623">23rd  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/624">24th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/625">25th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/626">26th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/627">27th </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/628">28th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/629">29th  </a></li>
+                    <li><a href="https://covid19curvature.github.io/Web/websites/630">30th  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">July</a>
+                <ul>
+                    <li><a href="#">1st  </a></li>
+                    <li><a href="#">2nd  </a></li>
+                    <li><a href="#">3rd  </a></li>
+                    <li><a href="#">4th  </a></li>
+                    <li><a href="#">5th </a></li>
+                    <li><a href="#">6th  </a></li>
+                    <li><a href="#">7th </a></li>
+                    <li><a href="#">8th  </a></li>
+                    <li><a href="#">9th  </a></li>
+                    <li><a href="#">10th  </a></li>
+                    <li><a href="#">11th  </a></li>
+                    <li><a href="#">12th  </a></li>
+                    <li><a href="#">13rd  </a></li>
+                    <li><a href="#">14th  </a></li>
+                    <li><a href="#">15th </a></li>
+                    <li><a href="#">16th  </a></li>
+                    <li><a href="#">17th </a></li>
+                    <li><a href="#">18th  </a></li>
+                    <li><a href="#">19th  </a></li>
+                    <li><a href="#">20th  </a></li>
+                    <li><a href="#">21st  </a></li>
+                    <li><a href="#">22nd  </a></li>
+                    <li><a href="#">23rd  </a></li>
+                    <li><a href="#">24th  </a></li>
+                    <li><a href="#">25th </a></li>
+                    <li><a href="#">26th  </a></li>
+                    <li><a href="#">27th </a></li>
+                    <li><a href="#">28th  </a></li>
+                    <li><a href="#">29th  </a></li>
+                    <li><a href="#">30th  </a></li>
+                    <li><a href="#">31st  </a></li>
+                </ul>
+            </li>
+            <li><a href="#">August</a>
+                <ul>
+                    <li><a href="#">1st  </a></li>
+                    <li><a href="#">2nd  </a></li>
+                    <li><a href="#">3rd  </a></li>
+                    <li><a href="#">4th  </a></li>
+                    <li><a href="#">5th </a></li>
+                    <li><a href="#">6th  </a></li>
+                    <li><a href="#">7th </a></li>
+                    <li><a href="#">8th  </a></li>
+                    <li><a href="#">9th  </a></li>
+                    <li><a href="#">10th  </a></li>
+                    <li><a href="#">11th  </a></li>
+                    <li><a href="#">12th  </a></li>
+                    <li><a href="#">13rd  </a></li>
+                    <li><a href="#">14th  </a></li>
+                    <li><a href="#">15th </a></li>
+                    <li><a href="#">16th  </a></li>
+                    <li><a href="#">17th </a></li>
+                    <li><a href="#">18th  </a></li>
+                    <li><a href="#">19th  </a></li>
+                    <li><a href="#">20th  </a></li>
+                    <li><a href="#">21st  </a></li>
+                    <li><a href="#">22nd  </a></li>
+                    <li><a href="#">23rd  </a></li>
+                    <li><a href="#">24th  </a></li>
+                    <li><a href="#">25th </a></li>
+                    <li><a href="#">26th  </a></li>
+                    <li><a href="#">27th </a></li>
+                    <li><a href="#">28th  </a></li>
+                    <li><a href="#">29th  </a></li>
+                    <li><a href="#">30th  </a></li>
+                    <li><a href="#">31st  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">September</a>
+                <ul>
+                    <li><a href="#">1st  </a></li>
+                    <li><a href="#">2nd  </a></li>
+                    <li><a href="#">3rd  </a></li>
+                    <li><a href="#">4th  </a></li>
+                    <li><a href="#">5th </a></li>
+                    <li><a href="#">6th  </a></li>
+                    <li><a href="#">7th </a></li>
+                    <li><a href="#">8th  </a></li>
+                    <li><a href="#">9th  </a></li>
+                    <li><a href="#">10th  </a></li>
+                    <li><a href="#">11th  </a></li>
+                    <li><a href="#">12th  </a></li>
+                    <li><a href="#">13rd  </a></li>
+                    <li><a href="#">14th  </a></li>
+                    <li><a href="#">15th </a></li>
+                    <li><a href="#">16th  </a></li>
+                    <li><a href="#">17th </a></li>
+                    <li><a href="#">18th  </a></li>
+                    <li><a href="#">19th  </a></li>
+                    <li><a href="#">20th  </a></li>
+                    <li><a href="#">21st  </a></li>
+                    <li><a href="#">22nd  </a></li>
+                    <li><a href="#">23rd  </a></li>
+                    <li><a href="#">24th  </a></li>
+                    <li><a href="#">25th </a></li>
+                    <li><a href="#">26th  </a></li>
+                    <li><a href="#">27th </a></li>
+                    <li><a href="#">28th  </a></li>
+                    <li><a href="#">29th  </a></li>
+                    <li><a href="#">30th  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">Octomber</a>
+                <ul>
+                    <li><a href="#">1st  </a></li>
+                    <li><a href="#">2nd  </a></li>
+                    <li><a href="#">3rd  </a></li>
+                    <li><a href="#">4th  </a></li>
+                    <li><a href="#">5th </a></li>
+                    <li><a href="#">6th  </a></li>
+                    <li><a href="#">7th </a></li>
+                    <li><a href="#">8th  </a></li>
+                    <li><a href="#">9th  </a></li>
+                    <li><a href="#">10th  </a></li>
+                    <li><a href="#">11th  </a></li>
+                    <li><a href="#">12th  </a></li>
+                    <li><a href="#">13rd  </a></li>
+                    <li><a href="#">14th  </a></li>
+                    <li><a href="#">15th </a></li>
+                    <li><a href="#">16th  </a></li>
+                    <li><a href="#">17th </a></li>
+                    <li><a href="#">18th  </a></li>
+                    <li><a href="#">19th  </a></li>
+                    <li><a href="#">20th  </a></li>
+                    <li><a href="#">21st  </a></li>
+                    <li><a href="#">22nd  </a></li>
+                    <li><a href="#">23rd  </a></li>
+                    <li><a href="#">24th  </a></li>
+                    <li><a href="#">25th </a></li>
+                    <li><a href="#">26th  </a></li>
+                    <li><a href="#">27th </a></li>
+                    <li><a href="#">28th  </a></li>
+                    <li><a href="#">29th  </a></li>
+                    <li><a href="#">30th  </a></li>
+                    <li><a href="#">31st  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">November</a>
+                <ul>
+                    <li><a href="#">1st  </a></li>
+                    <li><a href="#">2nd  </a></li>
+                    <li><a href="#">3rd  </a></li>
+                    <li><a href="#">4th  </a></li>
+                    <li><a href="#">5th </a></li>
+                    <li><a href="#">6th  </a></li>
+                    <li><a href="#">7th </a></li>
+                    <li><a href="#">8th  </a></li>
+                    <li><a href="#">9th  </a></li>
+                    <li><a href="#">10th  </a></li>
+                    <li><a href="#">11th  </a></li>
+                    <li><a href="#">12th  </a></li>
+                    <li><a href="#">13rd  </a></li>
+                    <li><a href="#">14th  </a></li>
+                    <li><a href="#">15th </a></li>
+                    <li><a href="#">16th  </a></li>
+                    <li><a href="#">17th </a></li>
+                    <li><a href="#">18th  </a></li>
+                    <li><a href="#">19th  </a></li>
+                    <li><a href="#">20th  </a></li>
+                    <li><a href="#">21st  </a></li>
+                    <li><a href="#">22nd  </a></li>
+                    <li><a href="#">23rd  </a></li>
+                    <li><a href="#">24th  </a></li>
+                    <li><a href="#">25th </a></li>
+                    <li><a href="#">26th  </a></li>
+                    <li><a href="#">27th </a></li>
+                    <li><a href="#">28th  </a></li>
+                    <li><a href="#">29th  </a></li>
+                    <li><a href="#">30th  </a></li>
+                </ul>
+            </li> 
+            <li><a href="#">December</a>
+                <ul>
+                    <li><a href="#">1st</a></li>
+                    <li><a href="#">2nd</a></li>
+                    <li><a href="#">3rd</a></li>
+                    <li><a href="#">4th</a></li>
+                    <li><a href="#">5th</a></li>
+                    <li><a href="#">6th</a></li>
+                    <li><a href="#">7th</a></li>
+                    <li><a href="#">8th</a></li>
+                    <li><a href="#">9th</a></li>
+                    <li><a href="#">10th</a></li>
+                    <li><a href="#">11th</a></li>
+                    <li><a href="#">12th</a></li>
+                    <li><a href="#">13rd</a></li>
+                    <li><a href="#">14th</a></li>
+                    <li><a href="#">15th</a></li>
+                    <li><a href="#">16th</a></li>
+                    <li><a href="#">17th</a></li>
+                    <li><a href="#">18th</a></li>
+                    <li><a href="#">19th</a></li>
+                    <li><a href="#">20th</a></li>
+                    <li><a href="#">21st</a></li>
+                    <li><a href="#">22nd</a></li>
+                    <li><a href="#">23rd</a></li>
+                    <li><a href="#">24th</a></li>
+                    <li><a href="#">25th</a></li>
+                    <li><a href="#">26th</a></li>
+                    <li><a href="#">27th</a></li>
+                    <li><a href="#">28th</a></li>
+                    <li><a href="#">29th</a></li>
+                    <li><a href="#">30th</a></li>
+                    <li><a href="#">31st</a></li>
+                </ul>
+            </li> 
+        </ul>
+
+        <div id="view"></div>
+  <script type="text/javascript">
+    $(function() {
+        var loading = '<div id="loading"><img src="https://timgsa.baidu.com/timg?image&quality=80&size=b9999_10000&sec=1504002746731&di=a7d82714e2b6a150ecb6ab45d2dc73b9&imgtype=0&src=http%3A%2F%2Falcastongallery.com.au%2Fassets%2Fimages%2Fajax-loader.gif"></div>';
+        $('body').append($(loading));
+ 
+        setTimeout(function () {
+            $('#loading').remove();
+        }, 3000);
+    });
+ 
+    var view;
+
+    fetch('https://raw.githubusercontent.com/covid19curvature/covid19curvature.github.io/master/Web/JSON/309.json')
+      .then(res => res.json())
+      .then(spec => render(spec))
+      .catch(err => console.error(err));
+
+    function render(spec) {
+      view = new vega.View(vega.parse(spec), {
+        renderer:  'canvas',  // renderer (canvas or svg)
+        container: '#view',   // parent DOM container
+        hover:     true       // enable hover processing
+      });
+      return view.runAsync();
+    }
+  </script>
+    </body>
+</html>
